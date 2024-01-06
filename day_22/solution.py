@@ -37,23 +37,8 @@ for a,b in itertools.permutations(w.keys(), 2):
         c += 1
 print(c)
 
-miny = 0
-minx = 0
-maxx = max(x[0] for x in w.keys())
-maxy = max(x[1] for x in w.keys())
-
-# x goes across, y goes down
-grid = []
-for i in range(maxy+1):
-    row = []
-    for j in range(maxx + 1):
-        if (j,i) in w:
-            row.append(w[(j,i)][:-1])
-        else:
-            row.append("x")
-    print(row)
-    grid.append(row)
-
-for k,v in w.items():
-    if v[1] == 0:
-        print(k, v)
+# 24 + 2 directly there
+# the wall makes you go 23 steps to the left
+# so it takes you 23 + 23 + 24 + 2 steps to get to the target data.
+# shifting that data over by one takes 5 steps. 36 more steps so 36*5
+print(23 + 23 + 24 + 2 + 5 * 36)
